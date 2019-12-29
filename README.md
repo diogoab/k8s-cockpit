@@ -174,7 +174,7 @@ O painel do Kubernetes pode ser implantado como um pod no Kubernetes, exigindo q
 $ wget https://raw.githubusercontent.com/cockpit-project/cockpit/master/containers/kubernetes-cockpit.json
 $ kubectl create -f kubernetes-cockpit.json
 ```
-Esse pod pode ser usado no kubernetes configurados com autenticação básica. Por padrão, o pod tenta acessar a API do kubernetes com segurança e espera que o servidor da API do kubernetes tenha sido implantado com uma CA, arquivos de certificado e chave da conta de serviço. Para alterar esse comportamento, edite kubernetes-cockpit.json e altere a variável KUBE_INSECURE de ambiente para "true".
+Esse pod pode ser usado no kubernetes configurados com autenticação básica. Por padrão, o pod tenta acessar a API do kubernetes com segurança e espera que o servidor da API do kubernetes tenha sido implantado com uma CA, arquivos de certificado e chave da conta de serviço. Para alterar esse comportamento, edite kubernetes-cockpit.json e altere a variável de ambiente KUBE_INSECURE  para "true".
 
 Você pode recuperar o endereço onde pode acessar o painel via:
 ```
