@@ -1,10 +1,12 @@
 # Gerencie seu cluster Kubernetes com Cockpit project
 
-![Alt text](./img/logo.png "Cockpit Project")
+<p align="center">
+  <img src="./img/logo.png" width="350" title="Cockpit Project">
+</p>
 
-### Requisitos
+### Requisitos:
 
-### Cluster com 03 servers
+#### Cluster com 03 servers
 ```
 k8s-master - Centos 7 - 2vCPU - 8GBram - 10GB Disco
 k8s-worker1 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
