@@ -163,7 +163,7 @@ Quando o painel do Kubernetes é usado em uma sessão de login padrão do Cockpi
 ~/.kube/config 
 ```
 
-#### Used as a Kubernetes Pod
+#### Use como um Pod Kubernetes:
 O painel do Kubernetes pode ser implantado como um pod no Kubernetes, exigindo que os usuários efetuem login usando a autenticação padrão padrão configurada para acessar sua API.
 
 ```
