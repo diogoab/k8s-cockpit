@@ -149,8 +149,19 @@ kubeadm join xxx.xxx.xxx.xxx:xxxx --token xxxx.xxxxxxxxxxxxxxx \
 # systemctl start cockpit && systemctl enable cockpit.socket 
 ```
 
-#### Para acessar nossa interface web: <ip_do_servidor>:9090
+#### Para acessar nossa interface web: 
 
+```
+<ip_do_servidor>:9090
+```
+
+#### Login:
+
+Quando o painel do Kubernetes é usado em uma sessão de login padrão do Cockpit, geralmente é necessária alguma forma de autenticação para acessar a API REST do Kubernetes, o Cockpit usa as informações de autenticação e servidor no arquivo abaixo para o usuário conectado. 
+
+```
+~/.kube/config 
+```
 
 
 
