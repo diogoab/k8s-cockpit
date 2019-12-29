@@ -1,5 +1,7 @@
 # Gerencie seu cluster Kubernetes com Cockpit
 
+![Cockpit Project](./img/logo.png)
+
 ### Requisitos
 
 ### Cluster com 03 servers
