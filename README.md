@@ -10,15 +10,23 @@ k8s-master - Centos 7 - 2vCPU - 8GBram - 10GB Disco
 k8s-worker1 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
 k8s-worker2 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
 ```
+
+#### Atualizar e instale os seguites pacotes:
 ```
 # yum update -y && yum upgrade -y && yum -y install epel-release net-tools wget curl
 ```
+
+#### Instalar o Docker:
 ```
 # curl -fsSL https://get.docker.com | bash
 ```
+
+#### Iniciar e criar regra de inicialização automatica do Docker:
 ```
 # systemctl enable docker && systemctl start docker && systemctl status docker
 ```
+
+#### Insira o repositório do Kubernetes:
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -30,22 +38,27 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 ```
+
+#### Parar o Firewall interno:
 ```
 # setenforce 0
-```
-```
+
 # systemctl stop firewalld
-```
-```
+
 # systemctl disable firewalld
 ```
+
+#### Instale os pacotes do Kubernetes:
 ```
 # yum install -y kubelet kubeadm kubectl
 ```
+
+#### Ativar e criar regra de inicialização automatica do Kubernetes:
 ```
 # systemctl enable kubelet && systemctl start kubelet && systemctl status kubelet
 ```
 
+#### Insira no arquivo Sysctl as instruções abaixo:
 ```
 # vi /etc/sysctl.conf
 
@@ -53,63 +66,88 @@ net.bridge.bridge-nf-call-ip6tables = 1
 
 net.bridge.bridge-nf-call-iptables = 1
 ```
+
+#### Aplique as regras do sysctl
 ```
 # sysctl --system
 ```
+
+#### Configure as regras: 
 ```
 # modprobe br_netfilter
 ```
 ```
 # echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 ```
+#### Insira as informações abaixo no arquivo Kubelet:
 ```
 # vi /etc/sysconfig/kubelet
-```
-```
+
 KUBELET_EXTRA_ARGS=cgroup-driver=cgroupfs
 ```
+
+#### Aplique as regras do Kubelet
 ```
 # systemctl daemon-reload
-```
-```
+
 # systemctl restart kubelet
 ```
+#### Desative o swap no sistema:
 ```
 # swapoff -a
 ```
+
+#### Remova a linha do Swap caso exista no arquivo FSTAB:
 ```
 # vi /etc/fstab
 ```
+
+#### Inicie o cluster Kubernetes apenas no node Master:
 ```
 # kubeadm init
 ```
+#### Insira as instruções abaixo no perfil de usuário que utilizará o Kubernetes:
 ```
 # mkdir -p $HOME/.kube
-```
-```
+
 # sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-```
-```
+
 # sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+#### Instale o gerenciador de rede WeaveNet:
 ```
 # kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
+
+#### Acesse os nodes Workers e adicione-os no cluster que foi gerado no node Master, com:
+```
+kubeadm join xxx.xxx.xxx.xxx:xxxx --token xxxx.xxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+#### Listar os pods do Kubernetes:
 ```
 # kubectl get pods -n kube-system
 ```
+
+#### Liste todos os nodes com:
 ```
 # kubectl get nodes
 ```
+
+## Instalando o Cockpit project:
+
+
+#### Instale os pacotes abaixo:
 ```
 # yum install -y cockpit cockpit-networkmanager cockpit-dashboard cockpit-storaged cockpit-packagekit cockpit-docker cockpit-kubernetes cockpit-machines cockpit-sosreport cockpit-selinux cockpit-kdump cockpit-subscriptions cockpit-pcp
 ```
-
+#### Iniciar e criar regra de inicialização automatica do Cockpit:
 ```
 # systemctl start cockpit && systemctl enable cockpit.socket 
 ```
 
-Para acessar nossa interface web: <ip_do_servidor>:9090
+#### Para acessar nossa interface web: <ip_do_servidor>:9090
 
 
 
