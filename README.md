@@ -1,4 +1,4 @@
-# Gerencie seu cluster Kubernetes com Cockpit
+# Gerencie seu cluster Kubernetes com Cockpit project
 
 ![Cockpit Project](./img/logo.png)
 
