@@ -1,8 +1,6 @@
 # Gerencie seu cluster Kubernetes com Cockpit project
 
-<p align="center">
-  <img src="./img/logo.png" width="250" title="Cockpit Project">
-</p>
+![Kubernetes](./img/kubernetes.png "Kubernetes") ![cockpit-project](./img/logo.png "Cockpit Project")
 
 ### Requisitos:
 
