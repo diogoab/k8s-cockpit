@@ -177,4 +177,6 @@ Você pode recuperar o endereço onde pode acessar o painel via:
 $ kubectl get service kubernetes-cockpit
 ```
 
+#### Documentação do Cockpit Project -- latest version disponivel em: http://cockpit-project.org/guide/latest/
+
 
