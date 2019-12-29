@@ -5,10 +5,11 @@
 ### Requisitos
 
 ### Cluster com 03 servers
-#### k8s-master - Centos 7 - 2vCPU - 8GBram - 10GB Disco
-#### k8s-worker1 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
-#### k8s-worker2 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
-
+```
+k8s-master - Centos 7 - 2vCPU - 8GBram - 10GB Disco
+k8s-worker1 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
+k8s-worker2 - Centos 7 - 2vCPU - 8GBram - 10GB Disco
+```
 ```
 # yum update -y && yum upgrade -y && yum -y install epel-release net-tools wget curl
 ```
